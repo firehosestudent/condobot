@@ -4,4 +4,8 @@ class CondosController < ApplicationController
     @condos = Condo.all
   end
 
+  def new
+    @condo = Condo.new
+  end
+
 end

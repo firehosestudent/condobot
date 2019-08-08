@@ -1,0 +1,28 @@
+
+<div class="booyah-box col-10 offset-1">
+
+  <h1>Enter Your Condo Details</h1>
+
+  <%= simple_form_for @condo do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :intersection %>
+    <%= f.input :address %>
+    <%= f.input :builder %>
+    <%= f.input :city %>
+    <%= f.input :cost1bed %>
+    <%= f.input :cost1bedden %>
+    <%= f.input :cost2bed %>
+    <%= f.input :cost2bedden %>
+    <%= f.input :cost3bed %>
+    <%= f.input :cost3bedden %>
+    <%= f.input :occupancy %>
+    <br />
+    <%= f.submit 'Create', class: 'btn btn-primary' %>
+
+
+
+  <% end %>
+
+</div>
+
