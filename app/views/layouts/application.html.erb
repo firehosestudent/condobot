@@ -16,22 +16,24 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <a class="navbar-brand" href="#">CondoBOT</a>
+      <!-- <a class="navbar-brand" href="#">CondoBOT</a> -->
+      <%= link_to 'CondoBOT', root_path, class: 'navbar-brand' %>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         
         <ul class="navbar-nav mr-auto">
           
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">link1 <span class="sr-only">(current)</span></a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">Link2</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="#">Add Condo</a>
+            <!-- <a class="nav-link" href="#">Add Condo</a> -->
+            <%= link_to 'Add New Condo', new_condo_path, class: 'nav-link' %>
           </li>
 
         </ul>
@@ -43,10 +45,37 @@
 
         </form>
 
+        <ul class="navbar-nav">
+
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
+              
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %>
+              
+            </li>
+          <% end %>
+          
+        </ul>
+
       </div>
     </nav>
 
     <br class="clear" />
+
+    <% if notice.present? %>
+      <p class="alert alert-info"><%= notice %></p>
+    <% end %>
+    <% if alert.present? %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
 
     <%= yield %>
   </body>

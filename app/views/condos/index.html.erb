@@ -8,7 +8,19 @@
     <h1><%= condo.intersection %></h1><br />
     <h1><%= condo.address %></h1><br />
     <h1><%= condo.builder %></h1><br />
-    <h1><%= condo.city %></h1><br />
+    <h1><%= condo.cost1bed %></h1><br />
+    <h1><%= condo.cost1bedden %></h1><br />
+    <h1><%= condo.cost2bed %></h1><br />
+    <h1><%= condo.cost2bedden %></h1><br />
+    <h1><%= condo.cost3bed %></h1><br />
+    <h1><%= condo.cost3bedden %></h1><br />
+    <h1><%= condo.occupancy %></h1><br />
+
+
+    <% if condo.user.present? %>
+      <small><%= condo.user.email %></small>
+    <% end %>
+
   </div>
 
  
