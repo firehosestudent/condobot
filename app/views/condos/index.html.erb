@@ -3,7 +3,9 @@
 <% @condos.each do |condo| %>
 
   <div class="booyah-box col-10 offset-1">
-    <h1><%= condo.name %></h1><br />
+
+    <h1><%= link_to condo.name, condo_path(condo) %></h1><br />
+    <!-- <h1><%= condo.name %></h1><br /> -->
     <h1><%= condo.description %></h1><br />
     <h1><%= condo.intersection %></h1><br />
     <h1><%= condo.address %></h1><br />

@@ -16,6 +16,10 @@ class CondosController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @condo = Condo.find(params[:id])
+  end
+
 
   private
 
