@@ -20,6 +20,21 @@ class CondosController < ApplicationController
     @condo = Condo.find(params[:id])
   end
 
+  def edit
+    @condo = Condo.find(params[:id])
+  end
+
+  def update
+    @condo = Condo.find(params[:id])
+    @condo.update_attributes(condo_params)
+    redirect_to root_path
+  end
+
+  def destroy
+    @condo = Condo.find(params[:id])
+    @condo.destroy
+    redirect_to root_path
+  end
 
   private
 
