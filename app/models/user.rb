@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
 
   has_many :condos
+  has_many :photos
 
 end
