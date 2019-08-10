@@ -1,6 +1,6 @@
 class CondosController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
     @condos = Condo.all
@@ -22,10 +22,20 @@ class CondosController < ApplicationController
 
   def edit
     @condo = Condo.find(params[:id])
+
+    if @condo.user != current_user
+      return render plain: 'Not Allowed', status: :forbidden
+    end
+
   end
 
   def update
     @condo = Condo.find(params[:id])
+
+    if @condo.user != current_user
+      return render plain: 'Not Allowed', status: :forbidden
+    end
+
     @condo.update_attributes(condo_params)
     redirect_to root_path
   end
