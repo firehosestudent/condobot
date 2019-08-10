@@ -36,6 +36,9 @@
             <%= link_to 'Add New Condo', new_condo_path, class: 'nav-link' %>
           </li>
 
+          
+          
+
         </ul>
 
         <form class="form-inline my-2 my-lg-0">
@@ -50,6 +53,13 @@
           <% if user_signed_in? %>
             <li class="nav-item">
               <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="#">Add Condo</a> -->
+
+              
+              <%= link_to 'My Profile', user_path(current_user), class: 'nav-link' %>
+              
             </li>
           <% else %>
             <li class="nav-item">

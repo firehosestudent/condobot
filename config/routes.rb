@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   root 'condos#index'
   resources :condos
 
+
+
+  resources :users, only: :show
+
 end

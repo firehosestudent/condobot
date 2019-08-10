@@ -1,0 +1,56 @@
+
+<div class="booyah-box">
+
+  <div class="row">
+    
+    <div class="col-4">
+      <%= image_tag 'user.png' %>
+    </div>
+
+
+    <div class="text-center col-8">
+      <h1><%= @user.email %></h1>
+
+      <h3>Member Since: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
+    </div>
+
+
+
+  </div>
+
+  <div class="clear"></div>
+
+  <br />
+
+  <h2 class="text-center">My Condos</h2>
+
+  <br />
+
+  <% @user.condos.each do |condo| %>
+    
+    <div class="booyah-box col-10 offset-1">
+
+      <h1><%= link_to condo.name, condo_path(condo) %></h1><br />
+      <!-- <h1><%= condo.name %></h1><br /> -->
+      <h1><%= condo.description %></h1><br />
+      <h1><%= condo.intersection %></h1><br />
+      <h1><%= condo.address %></h1><br />
+      <h1><%= condo.builder %></h1><br />
+      <h1><%= condo.cost1bed %></h1><br />
+      <h1><%= condo.cost1bedden %></h1><br />
+      <h1><%= condo.cost2bed %></h1><br />
+      <h1><%= condo.cost2bedden %></h1><br />
+      <h1><%= condo.cost3bed %></h1><br />
+      <h1><%= condo.cost3bedden %></h1><br />
+      <h1><%= condo.occupancy %></h1><br />
+
+
+      <% if condo.user.present? %>
+        <small><%= condo.user.email %></small>
+      <% end %>
+
+    </div>
+
+  <% end %>
+
+</div>
