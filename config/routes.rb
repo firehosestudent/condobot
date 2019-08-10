@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'condos#index'
-  resources :condos
+  
+
+  resources :condos do
+    resources :photos, only: :create
+  end
 
 
 

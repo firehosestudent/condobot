@@ -17,7 +17,24 @@
     <% end %>
   </div>
 
+  <div class="clear"></div>
 
+  <%= simple_form_for @photo, url: condo_photos_path(@condo) do |f| %>
+    <%= f.input :caption %>
+    <%= f.input :condoimage %>
+    <%= f.submit "Add Photo", class: 'btn btn-primary' %>
+  <% end %>
+
+  <h1>Photos</h1>
+
+  <% @condo.photos.each do |photo| %>
+
+    <div>
+      <%= photo.caption %>
+      <%= image_tag photo.condoimage %>
+      
+    </div>
+  <% end %>
 
 
 

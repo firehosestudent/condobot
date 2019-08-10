@@ -18,6 +18,7 @@ class CondosController < ApplicationController
 
   def show
     @condo = Condo.find(params[:id])
+    @photo = Photo.new
   end
 
   def edit
