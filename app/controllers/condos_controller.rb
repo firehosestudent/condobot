@@ -55,7 +55,7 @@ class CondosController < ApplicationController
   private
 
   def condo_params
-    params.require(:condo).permit(:name, :description, :intersection, :builder, :city, :cost1bed, :cost1bedden, :cost2bed, :cost2bedden, :cost3bed, :cost3bedden, :occupancy)
+    params.require(:condo).permit(:name, :description, :address, :intersection, :builder, :city, :cost1bed, :cost1bedden, :cost2bed, :cost2bedden, :cost3bed, :cost3bedden, :occupancy)
   end
 
 
