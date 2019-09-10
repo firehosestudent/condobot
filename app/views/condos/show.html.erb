@@ -9,6 +9,38 @@
   <p><%= @condo.cost1bed %></p>
 
 
+  
+  <% if @condo.latitude.present? && @condo.longitude.present? %>
+    
+      
+    <script>
+
+      function initMap() {
+        var myLatLng = {lat: <%= @condo.latitude %>, lng: <%= @condo.longitude %>};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrbd1GzrCgBXeRZtX4BAgyCtCWwLnn6gU&callback=initMap">
+    </script>
+
+    <div id="map"></div>
+
+  <% end %>
+
+  <br />
+
+
   <div class="float-right">
     <% if current_user && current_user == @condo.user %>
       <%= link_to 'Edit', edit_condo_path(@condo), class: 'btn btn-primary' %>
@@ -35,6 +67,7 @@
       
     </div>
   <% end %>
+
 
 
 
